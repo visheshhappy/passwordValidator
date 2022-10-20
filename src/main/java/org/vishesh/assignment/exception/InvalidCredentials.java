@@ -6,7 +6,8 @@ public class InvalidCredentials extends RuntimeException {
         MIN_LENGTH,
         MIN_LOWER_CASE,
         MIN_UPPER_CASE,
-        MIN_NUMBER
+        MIN_NUMBER,
+        NULL_PASSWORD ;
     }
 
     private ErrorCode errorCode;

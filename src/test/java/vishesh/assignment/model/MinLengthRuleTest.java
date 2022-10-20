@@ -3,27 +3,27 @@ package vishesh.assignment.model;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.vishesh.assignment.exception.InvalidCredentials;
-import org.vishesh.assignment.model.LengthRule;
+import org.vishesh.assignment.model.MinLengthRule;
 
-public class LengthRuleTest {
+public class MinLengthRuleTest {
 
-    private LengthRule lengthRule = new LengthRule();
+    private MinLengthRule minLengthRule = new MinLengthRule(8);
 
     @Test
     public void testWhenLengthIsGreaterThanEight(){
         String password = "teestdummypass";
-        Assertions.assertDoesNotThrow(()->lengthRule.execute(password));
+        Assertions.assertDoesNotThrow(()-> minLengthRule.execute(password));
     }
 
     @Test
     public void testWhenLengthIsLessThanEight(){
         String password = "teest";
-        Assertions.assertThrows(InvalidCredentials.class, ()->lengthRule.execute(password));
+        Assertions.assertThrows(InvalidCredentials.class, ()-> minLengthRule.execute(password));
     }
 
     @Test
     public void testWhenPasswordIsEmpty(){
         String password = "";
-        Assertions.assertThrows(InvalidCredentials.class, ()->lengthRule.execute(password));
+        Assertions.assertThrows(InvalidCredentials.class, ()-> minLengthRule.execute(password));
     }
 }
