@@ -4,7 +4,7 @@ import org.vishesh.assignment.exception.InvalidCredentials;
 import org.vishesh.assignment.manager.RulesManager;
 import org.vishesh.assignment.model.Rule;
 
-public class PasswordValidatorComponent {
+public class PasswordValidatorComponent implements PasswordValidator{
 
     private final RulesManager rulesManager;
 
@@ -12,6 +12,7 @@ public class PasswordValidatorComponent {
         this.rulesManager = rulesManager;
     }
 
+    @Override
     public void validatePassword(final String password){
 
         if(null == password) {
